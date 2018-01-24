@@ -17,9 +17,7 @@ pub extern "C" fn rust_eh_unwind_resume() {}
 /// Panic entry function
 pub extern "C" fn rust_begin_panic(_: core::fmt::Arguments, _: &'static str, _: u32) -> ! {
     // Try to do a segementation fault
-    unsafe {
-        let _ = *(core::ptr::null::<i32>());
-    }
+    let _ = *(core::ptr::null::<i32>());
     // Loop forever
     loop {}
 }
